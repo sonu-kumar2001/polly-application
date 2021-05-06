@@ -6,7 +6,7 @@ const App = () => {
   useEffect(() => {
     /*eslint no-undef: "off"*/
     initializeLogger();
-    logger.info("Log from js-logger");
+    // logger.info("Log from js-logger");
   }, []);
   return (
     <Router>
