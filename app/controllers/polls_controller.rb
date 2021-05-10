@@ -8,7 +8,7 @@ class PollsController < ApplicationController
     end
 
     def create
-        @poll = Poll.new(poll_params)
+        @poll = Poll.new(poll_params.merge(creator_id: @current_user.id))
         if @poll.save
             render status: :ok, json: { notice:  t('successfully_created', entity: 'Poll') }
         else 
