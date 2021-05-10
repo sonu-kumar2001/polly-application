@@ -1,9 +1,11 @@
 class Poll < ApplicationRecord
-    validates :title, presence: true
-    validates :slug, uniqueness: true
-    validate :slug_not_changed
-
-    before_create :set_slug
+  has_many :options
+  belongs_to :user
+  accepts_nested_attributes_for :options
+  validates :title, presence: true
+  validates :slug, uniqueness: true
+  validate :slug_not_changed
+  before_create :set_slug
 
     private
 
