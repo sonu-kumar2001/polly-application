@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard";
 import Login from "./components/Authentication/Login";
 import Signup from "components/Authentication/Signup";
 import PrivateRoute from "components/Common/PrivateRoute";
+
 const App = () => {
   const [loading, setLoading] = useState(true);
 
