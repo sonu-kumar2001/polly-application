@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import PageLoader from "./components/PageLoader";
-import { initializeLogger } from "common/logger";
+import initializeLogger from "common/logger";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Authentication/Login";
+import Signup from "components/Authentication/Signup";
+import PrivateRoute from "components/Common/PrivateRoute";
 const App = () => {
   const [loading, setLoading] = useState(true);
 
