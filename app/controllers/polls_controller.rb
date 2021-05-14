@@ -1,6 +1,7 @@
 class PollsController < ApplicationController
     before_action :authenticate_user_using_x_auth_token, except: %i[index show]
     before_action :load_poll, only: %i[show update destroy]
+    before_action :load_options, only: %i[show]
 
     def index
         polls = Poll.all
@@ -8,7 +9,7 @@ class PollsController < ApplicationController
     end
 
     def create
-        @poll = Poll.new(poll_params.merge(creator_id: @current_user.id))
+        @poll = Poll.new(poll_params.merge(user_id: @current_user.id))
         authorize @poll
         if @poll.save
             render status: :ok, json: { notice:  t('successfully_created', entity: 'Poll') }
@@ -34,7 +35,7 @@ class PollsController < ApplicationController
     end
 
     def destroy
-        authorize @task
+        authorize @poll
         if @poll.destroy
             render status: :ok, json: { notice: 'Successfully deleted poll.' }
         else
@@ -50,6 +51,12 @@ class PollsController < ApplicationController
 
     def load_poll
         @poll = Poll.find_by_slug!(params[:slug])
+        rescue ActiveRecord::RecordNotFound => errors
+            render json: {errors: errors}
+    end
+
+    def load_options
+        @options = Option.where(polls: @poll.id)
         rescue ActiveRecord::RecordNotFound => errors
             render json: {errors: errors}
     end

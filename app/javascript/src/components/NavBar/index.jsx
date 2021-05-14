@@ -39,7 +39,7 @@ const NavBar = () => {
             {isLoggedIn ? (
               <>
                 <span
-                  className="inline-flex items-center px-2 pt-1 text-md font-regular leading-5 text-bb-gray-600
+                  className="inline-flex items-center px-2 pt-1 text-xl font-regular leading-5 text-bb-gray-600
                   text-opacity-50 transition duration-150 ease-in-out border-b-2 border-transparent focus:outline-none
                   focus:text-bb-gray-700"
                 >
@@ -47,7 +47,7 @@ const NavBar = () => {
                 </span>
                 <a
                   onClick={handleLogout}
-                  className="inline-flex items-center px-1 pt-1 text-md
+                  className="inline-flex items-center px-1 pt-1 text-xl
                   font-semibold leading-5 text-bb-gray-600 text-opacity-50
                   transition duration-150 ease-in-out border-b-2
                   border-transparent hover:text-bb-gray-600 focus:outline-none
@@ -59,7 +59,7 @@ const NavBar = () => {
             ) : (
               <Link
                 to="/login"
-                className="inline-flex items-center px-1 pt-1 text-md
+                className="inline-flex items-center px-1 pt-1 text-xl
                 font-semibold leading-5 text-bb-gray-600 text-opacity-50
                 transition duration-150 ease-in-out border-b-2
                 border-transparent hover:text-bb-gray-600 focus:outline-none

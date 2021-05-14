@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { isNil, isEmpty, either } from "ramda";
-
+import { Link } from "react-router-dom";
 import Container from "components/Container";
 import PageLoader from "components/PageLoader";
 import pollsApi from "apis/polls";
@@ -43,9 +43,14 @@ const Dashboard = () => {
 
   return (
     <Container>
-      <h1 className="text-xl leading-5 text-center">
-        You have no tasks assigned 😔
+      <h1 className="text-xl leading-5 text-center my-6">
+        You have no Polls 😔
       </h1>
+      <Link to="/polls/create">
+        <p className="inline-block text-center px-5 py-2 bg-indigo-500 text-white font-semibold rounded">
+          Create
+        </p>
+      </Link>
     </Container>
   );
 };

@@ -2,24 +2,11 @@ import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const PrivateRoute = ({
-  component: Component,
-  condition,
-  path,
-  redirectRoute,
-  ...props
-}) => {
-  if (!condition) {
-    return (
-      <Redirect
-        to={{
-          pathname: redirectRoute,
-          from: props.location,
-        }}
-      />
-    );
+const PrivateRoute = props => {
+  if (!props.condition) {
+    return <Redirect to={props.redirectRoute} />;
   }
-  return <Route path={path} component={Component} {...props} />;
+  return <Route path={props.path} component={props.component} />;
 };
 
 PrivateRoute.propTypes = {
@@ -27,7 +14,6 @@ PrivateRoute.propTypes = {
   condition: PropTypes.bool,
   path: PropTypes.string,
   redirectRoute: PropTypes.string,
-  location: PropTypes.object,
 };
 
 export default PrivateRoute;
