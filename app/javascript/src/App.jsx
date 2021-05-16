@@ -11,6 +11,7 @@ import Login from "./components/Authentication/Login";
 import Signup from "./components/Authentication/Signup";
 import PrivateRoute from "components/Common/PrivateRoute";
 import CreatePoll from "./components/Polls/CreatePoll";
+import ShowPoll from "./components/Polls/ShowPoll";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -42,6 +43,12 @@ const App = () => {
           component={CreatePoll}
           condition={isLoggedIn}
           path="/polls/create"
+          redirectRoute="/login"
+        />
+        <PrivateRoute
+          component={ShowPoll}
+          condition={isLoggedIn}
+          path="/polls/:slug/show"
           redirectRoute="/login"
         />
       </Switch>
