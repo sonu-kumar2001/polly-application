@@ -24,22 +24,14 @@
   "version": "0.1.0",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.25.0",
+    "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-json": "^3.0.0",
     "eslint-plugin-react": "^7.23.2",
     "husky": ">=6",
     "lint-staged": ">=10",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.0",
     "webpack-dev-server": "^3.11.2"
-  },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write",
-    "app/**/*.{html,md,js,jsx,json,yml}": [
-      "prettier --write",
-      "eslint --fix"
-    ]
   },
   "scripts": {
     "prepare": "husky install"
@@ -48,5 +40,11 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "app/**/*.{html,md,js,jsx,json,yml}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }

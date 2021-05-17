@@ -2,6 +2,7 @@ class PollsController < ApplicationController
     before_action :authenticate_user_using_x_auth_token, except: %i[index]
     before_action :load_poll, only: %i[show update destroy]
     before_action :load_options, only: %i[show]
+    before_action :load_votes, only: :show
 
     def index
         polls = Poll.all
@@ -22,7 +23,8 @@ class PollsController < ApplicationController
     def show
         authorize @poll
         @options = @poll.options
-        render status: :ok, json: { poll: @poll, options: @options}
+        @votes = @poll.votes
+        render status: :ok, json: { poll: @poll, options: @options, votes:@votes}
     end
 
     def update
@@ -60,5 +62,10 @@ class PollsController < ApplicationController
         rescue ActiveRecord::RecordNotFound => errors
             render json: {errors: errors}
     end
-    
+
+    def load_votes
+        @vote = Vote.where(polls: @poll.id)
+        rescue ActiveRecord::RecordNotFound => errors
+            render json: {errors: errors}
+    end
 end

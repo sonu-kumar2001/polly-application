@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import { getFromLocalStorage } from "helpers/storage";
 import PageLoader from "./components/PageLoader";
-import initializeLogger from "common/logger";
+import { initializeLogger } from "common/logger";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Authentication/Login";
 import Signup from "./components/Authentication/Signup";

@@ -1,6 +1,5 @@
-const initializeLogger = () => {
+export const initializeLogger = () => {
   /* eslint no-undef: "off"*/
   require("js-logger").useDefaults();
 };
-
-export default initializeLogger;
+export const logger = require("js-logger");

@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  vote:
+    success_message: "Thanks for voting!"
+    duplicate_error_message: "You have already voted!"
   authorization:
     denied: "Access denied. You are not authorized to perform this action."
   session:

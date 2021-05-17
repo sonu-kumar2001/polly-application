@@ -55,7 +55,7 @@ const TaskForm = ({
       </div>
       <Button
         type="submit"
-        buttonText={type === "create" ? "Create Task" : "Update Task"}
+        buttonText={type === "create" ? "Create Poll" : "Update Poll"}
         loading={loading}
       />
     </form>

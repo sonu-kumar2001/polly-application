@@ -4,7 +4,7 @@ import LoginForm from "components/Authentication/Form/LoginForm";
 import authApi from "apis/auth";
 import { setAuthHeaders } from "apis/axios";
 import { setToLocalStorage } from "helpers/storage";
-
+import { logger } from "common/logger";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

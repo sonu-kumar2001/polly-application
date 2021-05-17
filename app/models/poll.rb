@@ -1,6 +1,7 @@
 class Poll < ApplicationRecord
-  has_many :options
   belongs_to :user
+  has_many :options
+  has_many :votes, dependent: :destroy
   accepts_nested_attributes_for :options
   validates :title, presence: true
   validates :slug, uniqueness: true

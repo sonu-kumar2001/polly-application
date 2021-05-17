@@ -5,7 +5,7 @@ import Container from "components/Container";
 import PageLoader from "components/PageLoader";
 import pollsApi from "apis/polls";
 import ListPolls from "../Polls/ListPolls";
-
+import { logger } from "common/logger";
 const Dashboard = () => {
   const [polls, setPolls] = useState([]);
   const [loading, setLoading] = useState(true);
