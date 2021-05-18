@@ -11,7 +11,7 @@ jobs:
           POSTGRES_HOST_AUTH_METHOD: trust
 
     #application directory change it with your application directory name
-    working_directory: ~/granite
+    working_directory: ~/polly
     environment:
       TZ: "/usr/share/zoneinfo/America/New_York"
       RAILS_ENV: "test"
@@ -19,6 +19,7 @@ jobs:
 
     steps:
       - checkout
+      - run: gem install bundler:2.2.16
 
       #install sqlite dependency
 
