@@ -46,7 +46,7 @@ jobs:
       # Unit tests
 
       - run:
-          shell: /bin/zshrc
+          shell: /bin/bash
           command: bundle exec rake db:test:prepare && bundle exec rails t -v
 workflows:
   version: 2
